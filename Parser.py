@@ -120,6 +120,12 @@ class Parser1:
             'fieldSTQKfrsj': '',
             'fieldSTQKglkssj': '',
             'fieldCNS': True,
+            # 是否接触过半个月内有疫情重点地区旅居史的人员 1:是 2:否
+            'fieldYQJLsfjcqtbl': '2',
+            # 健康码是否绿码 1:是 2:否
+            'fieldJKMsfwlm': '1',
+            # 半个月内是否到过国内疫情重点地区 1:是  2:否
+            'fieldCXXXsftjhb': '2',
         }
         post_data_info = dict(post_data1, **post_data2)
         return post_data_info
