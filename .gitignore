@@ -4,3 +4,4 @@ test/
 __pycache__/
 data.py
 test.py
+config.py
