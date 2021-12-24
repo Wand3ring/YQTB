@@ -242,16 +242,17 @@ def pushNotify():
     pushToken = (PUSH_PLUS_TOKEN if PUSH_PLUS_TOKEN else os.getenv('PUSH_PLUS_TOKEN'))
     with open("log.txt", "r") as f:
         msg = f.read()
-    os.remove("log.txt")
+    # os.remove("log.txt")
     if not pushToken:
         return logger.info('【Push+】PUSH_PLUS_TOKEN 未配置')
     url = 'http://www.pushplus.plus/send'
     data = {
         "token": pushToken,
-        "title": '健康打卡',
+        "title": '消息提醒',
         "content": msg
     }
-    response = requests.post(url, data=data).json()
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, data=json.dumps(data).encode(encoding='utf-8'), headers=headers).json()
     if response['code'] == 200:
         logger.info('【Push+】发送通知消息成功')
     elif response['code'] == 600:
